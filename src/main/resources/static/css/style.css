@@ -1,0 +1,7 @@
+.divCentral {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Faz com que o div ocupe toda a altura da tela */
+    flex-direction: column; /* Alinha os itens em coluna */
+}
