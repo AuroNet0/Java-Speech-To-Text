@@ -5,10 +5,18 @@
     <title>Transcrição</title>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
-<body>
-<div class="divCentral">
-    <h1>A mensagem gravada é:</h1>
-    <p th:text="${message}"></p>
-</div>
-</body>
+    <body class="body">
+        <div class="divCentral">
+            <h1>A mensagem gravada é:</h1>
+            <p th:text="${message}"></p>
+
+            <h2>A mensagem foi avaliada como:</h2>
+            <p th:text="${classification}"></p>
+
+            <form action="/hello" method="get">
+                <button class="buttonIniciar" type="submit">Voltar a página inicial</button>
+            </form>
+
+        </div>
+    </body>
 </html>

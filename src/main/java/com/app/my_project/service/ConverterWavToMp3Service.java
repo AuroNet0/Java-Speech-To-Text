@@ -11,8 +11,8 @@ import java.io.File;
 public class ConverterWavToMp3Service {
 
     public void converterToMp3() {
-        File audioFile = new File("C:\\Caminho\\Do\\Seu\\Arquivo\\NomeDoArquivo.wav"); //arquivo bruto
-        File mp3File = new File("C:\\Caminho\\Do\\Seu\\Arquivo\\NomeDoArquivo.mp3"); // convertido para transcrição
+        File audioFile = new File("C:\\Users\\Auro Neto\\Music\\Teste\\arquivobruto.wav"); //arquivo bruto
+        File mp3File = new File("C:\\Users\\Auro Neto\\Music\\Teste\\refinado.mp3"); // convertido para transcrição
 
         try {
             if (!audioFile.exists()) {

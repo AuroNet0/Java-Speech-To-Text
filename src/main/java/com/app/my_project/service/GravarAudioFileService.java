@@ -5,33 +5,24 @@ import org.springframework.stereotype.Service;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
-
 @Service
 public class GravarAudioFileService {
+    private TargetDataLine microphone;
+    private AudioInputStream audioStream;
+    private File wavFile;
 
-    private static final int GRAVACAO_DURATION_MS = 10000;
-
-    public void gravarAudio() {
+    public void iniciarGravacaoAudio() {
         AudioFormat format = new AudioFormat(16000, 16, 1, true, true);
-        File wavFile = new File("C:\\Caminho\\Da\\Pasta\\NomeDoArquivo.wav");
+        wavFile = new File("C:\\Users\\Auro Neto\\Music\\Teste\\arquivobruto.wav");
 
-        try (TargetDataLine microphone = AudioSystem.getTargetDataLine(format)) {
+        try {
+            microphone = AudioSystem.getTargetDataLine(format);
             microphone.open(format);
             microphone.start();
 
-            AudioInputStream audioStream = new AudioInputStream(microphone);
+            audioStream = new AudioInputStream(microphone);
 
-            Timer timer = new Timer();
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    microphone.stop();
-                    microphone.close();
-                }
-            }, GRAVACAO_DURATION_MS);
-
+            // Gravação assíncrona
             new Thread(() -> {
                 try {
                     AudioSystem.write(audioStream, AudioFileFormat.Type.WAVE, wavFile);
@@ -40,13 +31,29 @@ public class GravarAudioFileService {
                 }
             }).start();
 
-            Thread.sleep(GRAVACAO_DURATION_MS);
-            timer.cancel();
-        } catch (LineUnavailableException | InterruptedException ex) {
+            System.out.println("Gravação iniciada...");
+        } catch (LineUnavailableException ex) {
             ex.printStackTrace();
         }
+    }
 
-        ConverterWavToMp3Service convertendo = new ConverterWavToMp3Service();
-        convertendo.converterToMp3();
+    public void pararGravacaoAudio() {
+        if (microphone != null) {
+            microphone.stop();
+            microphone.close();
+            System.out.println("Gravação finalizada...");
+
+            try {
+                if (audioStream != null) {
+                    audioStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            ConverterWavToMp3Service convertendo = new ConverterWavToMp3Service();
+            convertendo.converterToMp3();
+        }
     }
 }

@@ -1,0 +1,162 @@
+@RELATION data_arguments
+
+@ATTRIBUTE text STRING
+@ATTRIBUTE sentiment {intermediaria, positiva, negativa}
+
+@DATA
+"é um otimo produto", positiva
+"aprovei o atendimento", positiva
+"é um ótimo produto", positiva
+"aprovei o atendimento", positiva
+"produto excelente", positiva
+"atendimento rápido e eficaz", positiva
+"superou minhas expectativas", positiva
+"recomendo o serviço", positiva
+"produto de alta qualidade", positiva
+"entrega rápida e segura", positiva
+"excelente experiência de compra", positiva
+"muito satisfeito com o atendimento", positiva
+"qualidade impecável", positiva
+"produto veio conforme descrito", positiva
+"muito bom atendimento", positiva
+"vou comprar novamente", positiva
+"preço justo pelo serviço oferecido", positiva
+"produto maravilhoso", positiva
+"funcionários atenciosos e prestativos", positiva
+"fácil de usar, recomendo", positiva
+"muito feliz com minha compra", positiva
+"foi além das minhas expectativas", positiva
+"voltarei a comprar", positiva
+"um serviço que realmente vale a pena", positiva
+"atendimento muito cordial", positiva
+"produto durável e resistente", positiva
+"entrega no prazo", positiva
+"funcionários bem treinados", positiva
+"resolvem rapidamente os problemas", positiva
+"recomendo fortemente", positiva
+"melhor compra que já fiz", positiva
+"um produto que eu precisava", positiva
+"gostei bastante da experiência", positiva
+"qualidade superior", positiva
+"cumpre o que promete", positiva
+"nota 10 no atendimento", positiva
+"produto perfeito para minhas necessidades", positiva
+"melhor produto do mercado", positiva
+"vou indicar para amigos", positiva
+"muito eficiente", positiva
+"bom preço, ótima qualidade", positiva
+"adorei o atendimento", positiva
+"fiquei encantado com o serviço", positiva
+"produto superou minhas expectativas", positiva
+"entrega mais rápida do que esperava", positiva
+"bem melhor do que eu imaginava", positiva
+"produto muito bem embalado", positiva
+"assistência rápida e eficiente", positiva
+"site fácil de navegar", positiva
+"excelente custo-benefício", positiva
+"um dos melhores atendimentos", positiva
+"produto muito bem avaliado", positiva
+
+"não é um bom produto", intermediaria
+"deve melhorar o atendimento", intermediaria
+"um produto mais ou menos", intermediaria
+"não é um bom produto", intermediaria
+"deve melhorar o atendimento", intermediaria
+"um produto mais ou menos", intermediaria
+"produto não correspondeu", intermediaria
+"precisa de melhorias no serviço", intermediaria
+"não fiquei satisfeito com a qualidade", intermediaria
+"demora no atendimento", intermediaria
+"produto razoável, mas não excelente", intermediaria
+"serviço aceitável", intermediaria
+"qualidade média", intermediaria
+"não atendeu todas as expectativas", intermediaria
+"esperava um pouco mais", intermediaria
+"serviço deixou a desejar", intermediaria
+"produto bom, mas não o melhor", intermediaria
+"atendimento foi ok", intermediaria
+"poderia ser mais rápido", intermediaria
+"produto regular", intermediaria
+"demorou um pouco mais do que o esperado", intermediaria
+"não é ruim, mas pode melhorar", intermediaria
+"esperava mais do atendimento", intermediaria
+"mediano, não impressionou", intermediaria
+"entrega foi um pouco demorada", intermediaria
+"atendimento pouco eficiente", intermediaria
+"não recomendo nem desaprovo", intermediaria
+"funcionou, mas não me impressionou", intermediaria
+"poderia ter sido mais fácil de usar", intermediaria
+"resolução dos problemas foi lenta", intermediaria
+"qualidade abaixo do esperado", intermediaria
+"mais ou menos, nada demais", intermediaria
+"atendimento precisa de ajustes", intermediaria
+"produto é funcional, mas não excelente", intermediaria
+"tive algumas dificuldades", intermediaria
+"não foi uma experiência incrível", intermediaria
+"o serviço cumpriu o básico", intermediaria
+"não atendeu todas as expectativas", intermediaria
+"esperava mais qualidade pelo preço", intermediaria
+"produto decente, mas com falhas", intermediaria
+"fiquei na dúvida sobre a compra", intermediaria
+"cumpre o que promete, mas não mais", intermediaria
+"não fiquei totalmente satisfeito", intermediaria
+"produto poderia ser mais bem acabado", intermediaria
+"o atendimento precisa melhorar", intermediaria
+"nada de surpreendente", intermediaria
+"experiência um tanto frustrante", intermediaria
+"funciona, mas não impressiona", intermediaria
+"poderia ser mais prático", intermediaria
+"produto médio", intermediaria
+"não foi uma boa compra", intermediaria
+
+"é um péssimo produto", negativa
+"reprovei o atendimento", negativa
+"é um péssimo produto", negativa
+"reprovei o atendimento", negativa
+"produto horrível", negativa
+"pior atendimento que já recebi", negativa
+"não compraria de novo", negativa
+"experiência muito negativa", negativa
+"produto veio com defeito", negativa
+"atendimento péssimo", negativa
+"nunca mais volto a comprar", negativa
+"produto totalmente diferente do anunciado", negativa
+"demora excessiva na entrega", negativa
+"não recomendo a ninguém", negativa
+"serviço muito ruim", negativa
+"produto de baixa qualidade", negativa
+"falta de profissionalismo no atendimento", negativa
+"comprei e me arrependi", negativa
+"não resolve o problema", negativa
+"péssimo custo-benefício", negativa
+"entrega foi um caos", negativa
+"funcionários mal treinados", negativa
+"não vale o preço pago", negativa
+"muita dificuldade para usar", negativa
+"produto frágil e mal feito", negativa
+"não funciona como prometido", negativa
+"decepcionante", negativa
+"suporte ineficiente", negativa
+"muito abaixo do esperado", negativa
+"não gostei nada do produto", negativa
+"falha grave no atendimento", negativa
+"serviço foi uma decepção", negativa
+"não entrega o que promete", negativa
+"totalmente insatisfeito", negativa
+"produto inutilizável", negativa
+"assistência não resolve", negativa
+"mau atendimento", negativa
+"demora e descaso", negativa
+"produto veio quebrado", negativa
+"produto engana o consumidor", negativa
+"experiência de compra terrível", negativa
+"atendimento sem educação", negativa
+"fiquei muito insatisfeito", negativa
+"tive muitos problemas", negativa
+"não recomendo de jeito nenhum", negativa
+"desperdício de dinheiro", negativa
+"não voltaria a comprar", negativa
+"produto enganoso", negativa
+"não funcionou como esperado", negativa
+"experiência negativa", negativa
+"vou devolver o produto", negativa

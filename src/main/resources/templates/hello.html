@@ -2,15 +2,26 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Page</title>
+    <title>My Project</title>
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
-<body>
-<div class="divCentral">
-    <h1>Aperte o botão para começar a gravação do Áudio</h1>
-    <form action="/gravar-audio" method="POST">
-        <button type="submit">Gravar Áudio</button>
-    </form>
-</div>
-</body>
+    <body class="body">
+        <div th:if="${isRecording == false}" class="divCentral">
+
+            <h1>Aperte o botão para começar a gravação do Áudio</h1>
+            <form action="/iniciar-gravacao" method="POST">
+                <button class="buttonIniciar" type="submit">Inicar gravação Áudio</button>
+            </form>
+
+        </div>
+        <div th:if="${isRecording == true}" class="divCentral">
+
+            <h1>Aperte o botão para finalizar a gravação do Áudio</h1>
+            <form action="/parar-gravacao" method="POST">
+                <button class="buttonParar" type="submit">Parar Gravação</button>
+            </form>
+
+        </div>
+
+    </body>
 </html>

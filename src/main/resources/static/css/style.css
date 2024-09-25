@@ -5,3 +5,40 @@
     height: 100vh; /* Faz com que o div ocupe toda a altura da tela */
     flex-direction: column; /* Alinha os itens em coluna */
 }
+
+.buttonIniciar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 200px;
+}
+
+.buttonIniciar:hover {
+    background-color: #45a049;
+}
+
+.buttonParar {
+    background-color: #f50727;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px;
+    width: 200px;
+}
+
+.buttonParar:hover {
+    background-color: #f25066;
+}
+
+
+
+
+
