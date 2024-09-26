@@ -36,8 +36,6 @@ public class TranscreverService {
                     transcricao.append(alternative.getTranscript()).append("\n");
                 }
             }
-//            ClassificacaoService result = new ClassificacaoService();
-//            classificacao = result.testeClassificacao(transcricao.toString());
         }
         return transcricao.toString();
     }

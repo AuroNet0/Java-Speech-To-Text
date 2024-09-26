@@ -44,7 +44,7 @@ public class ClassificacaoService {
         if (filteredTestData.numInstances() > 0) {
             Instance filteredInstance = filteredTestData.instance(0);
             double label = classifier.classifyInstance(filteredInstance);
-            resultadoClassificacao = dataset.classAttribute().value((int) label).toUpperCase(); // Armazena o resultado
+            resultadoClassificacao = dataset.classAttribute().value((int) label).toUpperCase();
             System.out.println("Classificação prevista: " + resultadoClassificacao);
         } else {
             System.out.println("O conjunto de dados filtrados está vazio.");

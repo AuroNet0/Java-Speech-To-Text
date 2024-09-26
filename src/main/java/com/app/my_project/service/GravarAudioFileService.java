@@ -13,7 +13,7 @@ public class GravarAudioFileService {
 
     public void iniciarGravacaoAudio() {
         AudioFormat format = new AudioFormat(16000, 16, 1, true, true);
-        wavFile = new File("C:\\Users\\Auro Neto\\Music\\Teste\\arquivobruto.wav");
+        wavFile = new File("C:\\Caminho\\Da\\Pasta\\NomeDoArquivo.wav");
 
         try {
             microphone = AudioSystem.getTargetDataLine(format);

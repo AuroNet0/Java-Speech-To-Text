@@ -45,7 +45,7 @@ public class HelloController {
             gravarAudioFileService.pararGravacaoAudio();
             isRecording = false;
             model.addAttribute("isRecording", isRecording);
-            String transcricao = appService.transcreverAudio("C:\\Users\\Auro Neto\\Music\\Teste\\refinado.mp3");
+            String transcricao = appService.transcreverAudio("C:\\Caminho\\Do\\Arquivo\\NomeDoArquivo.mp3");
             model.addAttribute("message", transcricao);
 
             classificacaoService.classificacaoTexto(transcricao);
