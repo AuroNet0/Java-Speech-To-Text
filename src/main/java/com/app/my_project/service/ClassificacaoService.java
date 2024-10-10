@@ -30,7 +30,6 @@ public class ClassificacaoService {
 
         NaiveBayes classifier = new NaiveBayes();
         classifier.buildClassifier(filteredData);
-        System.out.println("Classificando o novo exemplo de texto: " + textToClassification);
 
         Instances emptyDataset = new Instances(dataset, 0);
         emptyDataset.setClassIndex(dataset.classIndex());
@@ -45,9 +44,7 @@ public class ClassificacaoService {
             Instance filteredInstance = filteredTestData.instance(0);
             double label = classifier.classifyInstance(filteredInstance);
             resultadoClassificacao = dataset.classAttribute().value((int) label).toUpperCase();
-            System.out.println("Classificação prevista: " + resultadoClassificacao);
         } else {
-            System.out.println("O conjunto de dados filtrados está vazio.");
             resultadoClassificacao = "N/A";
         }
 

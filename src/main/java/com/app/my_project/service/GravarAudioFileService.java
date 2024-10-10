@@ -13,7 +13,7 @@ public class GravarAudioFileService {
 
     public void iniciarGravacaoAudio() {
         AudioFormat format = new AudioFormat(16000, 16, 1, true, true);
-        wavFile = new File("C:\\Caminho\\Da\\Pasta\\NomeDoArquivo.wav");
+        wavFile = new File("C:\\Caminho\\Do\\Arquivo\\Arquivo.wav");
 
         try {
             microphone = AudioSystem.getTargetDataLine(format);
@@ -31,7 +31,6 @@ public class GravarAudioFileService {
                 }
             }).start();
 
-            System.out.println("Gravação iniciada...");
         } catch (LineUnavailableException ex) {
             ex.printStackTrace();
         }
@@ -41,7 +40,6 @@ public class GravarAudioFileService {
         if (microphone != null) {
             microphone.stop();
             microphone.close();
-            System.out.println("Gravação finalizada...");
 
             try {
                 if (audioStream != null) {

@@ -4,12 +4,15 @@ import com.app.my_project.service.ClassificacaoService;
 import com.app.my_project.service.TranscreverService;
 import com.app.my_project.service.GravarAudioFileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
 public class HelloController {
 
     @Autowired
@@ -21,48 +24,50 @@ public class HelloController {
     @Autowired
     ClassificacaoService classificacaoService;
 
-    private boolean isRecording = false;
-
     @PostMapping("/iniciar-gravacao")
-    public String iniciarGravacao(Model model) {
+    public ResponseEntity<String> iniciarGravacao() {
         try {
             gravarAudioFileService.iniciarGravacaoAudio();
-            isRecording = true;
-            model.addAttribute("isRecording", isRecording);
-            model.addAttribute("message", "Gravação iniciada.");
-            return "hello";
+            return ResponseEntity.ok("Gravação iniciada");
         } catch (Exception e) {
-            e.printStackTrace();
-            model.addAttribute("message", "Erro ao iniciar a gravação: " + e.getMessage());
-            return "hello";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao iniciar a gravação: " + e.getMessage());
         }
     }
 
-    // Parar gravação de áudio, transcrever e classificar
     @PostMapping("/parar-gravacao")
-    public String pararGravacao(Model model) {
+    public ResponseEntity<Map<String, String>> pararGravacao() {
         try {
             gravarAudioFileService.pararGravacaoAudio();
-            isRecording = false;
-            model.addAttribute("isRecording", isRecording);
-            String transcricao = appService.transcreverAudio("C:\\Caminho\\Do\\Arquivo\\NomeDoArquivo.mp3");
-            model.addAttribute("message", transcricao);
-
+            String transcricao = appService.transcreverAudio("C:\\Caminho\\Do\\Arquivo\\Arquivo.mp3");
             classificacaoService.classificacaoTexto(transcricao);
             String classification = classificacaoService.getResultadoClassificacao();
-            model.addAttribute("classification", classification);
 
-            return "Result";
+            Map<String, String> response = new HashMap<>();
+            response.put("transcricao", transcricao);
+            response.put("classification", classification);
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            e.printStackTrace();
-            model.addAttribute("message", "Erro ao processar áudio: " + e.getMessage());
-            return "Result";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
         }
     }
-    @GetMapping("/hello")
-    public String hello(Model model) {
-        model.addAttribute("isRecording", isRecording);
-        return "hello";
+
+    @PostMapping("/transcrever-arquivo")
+    public ResponseEntity<Map<String, String>> transcreverArquivo() {
+        try {
+            var filePath = "C:\\Caminho\\Do\\Arquivo\\Arquivo.mp3";
+            String transcricao = appService.transcreverAudio(filePath);
+            classificacaoService.classificacaoTexto(transcricao);
+            String classification = classificacaoService.getResultadoClassificacao();
+
+            Map<String, String> response = new HashMap<>();
+            response.put("transcricao", transcricao);
+            response.put("classification", classification); // Adicione a classificação se necessário
+
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", e.getMessage()));
+        }
     }
+
 
 }
